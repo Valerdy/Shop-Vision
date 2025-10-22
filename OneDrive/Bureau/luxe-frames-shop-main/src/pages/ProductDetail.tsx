@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ShoppingCart, Check } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
+import { useRecentlyViewed } from '@/hooks/useRecentlyViewed';
 import { toast } from 'sonner';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ProductCard from '@/components/ProductCard';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -14,6 +16,13 @@ const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
+  const { recentProducts, addRecentProduct } = useRecentlyViewed();
+
+  useEffect(() => {
+    if (product) {
+      addRecentProduct(product);
+    }
+  }, [product]);
 
   if (!product) {
     return (
@@ -149,6 +158,21 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
+
+          {/* Recently Viewed Products */}
+          {recentProducts.length > 1 && (
+            <div className="mt-16 pt-16 border-t border-border">
+              <h2 className="text-2xl font-bold mb-8 animate-fade-in">Produits Récemment Consultés</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {recentProducts
+                  .filter((p) => p.id !== product.id)
+                  .slice(0, 4)
+                  .map((recentProduct) => (
+                    <ProductCard key={recentProduct.id} product={recentProduct} />
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
       </main>
 
