@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -7,23 +6,29 @@ import { toast } from 'sonner';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { contactSchema, type ContactFormData } from '@/lib/validations';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success('Message envoyé ! Nous vous répondrons bientôt.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      // Simulate sending email
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      toast.success('Message envoyé ! Nous vous répondrons bientôt.');
+      reset();
+    } catch (error) {
+      toast.error('Une erreur est survenue lors de l\'envoi du message');
+    }
   };
 
   return (
@@ -38,51 +43,65 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="gradient-card rounded-lg p-8 shadow-card animate-slide-right">
               <h2 className="text-2xl font-semibold mb-6">Envoyez-nous un message</h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div>
                   <Label htmlFor="name">Nom</Label>
                   <Input
                     id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
+                    {...register('name')}
+                    className={errors.name ? 'border-destructive' : ''}
+                    placeholder="Votre nom complet"
                   />
+                  {errors.name && (
+                    <p className="text-sm text-destructive mt-1">{errors.name.message}</p>
+                  )}
                 </div>
                 <div>
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
-                    name="email"
                     type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
+                    {...register('email')}
+                    className={errors.email ? 'border-destructive' : ''}
+                    placeholder="votre.email@exemple.com"
                   />
+                  {errors.email && (
+                    <p className="text-sm text-destructive mt-1">{errors.email.message}</p>
+                  )}
                 </div>
                 <div>
                   <Label htmlFor="subject">Sujet</Label>
                   <Input
                     id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
+                    {...register('subject')}
+                    className={errors.subject ? 'border-destructive' : ''}
+                    placeholder="Objet de votre message"
                   />
+                  {errors.subject && (
+                    <p className="text-sm text-destructive mt-1">{errors.subject.message}</p>
+                  )}
                 </div>
                 <div>
                   <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+                    {...register('message')}
+                    className={errors.message ? 'border-destructive' : ''}
                     rows={5}
-                    required
+                    placeholder="Décrivez votre demande..."
                   />
+                  {errors.message && (
+                    <p className="text-sm text-destructive mt-1">{errors.message.message}</p>
+                  )}
                 </div>
-                <Button type="submit" variant="default" size="lg" className="w-full hover-glow">
-                  Envoyer le Message
+                <Button
+                  type="submit"
+                  variant="default"
+                  size="lg"
+                  className="w-full hover-glow"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Envoi en cours...' : 'Envoyer le Message'}
                 </Button>
               </form>
             </div>

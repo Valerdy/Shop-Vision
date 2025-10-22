@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Heart } from 'lucide-react';
 import { Product } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
+import { useWishlist } from '@/contexts/WishlistContext';
 import { toast } from 'sonner';
 
 interface ProductCardProps {
@@ -11,6 +12,8 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const { addToCart } = useCart();
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const isFavorite = isInWishlist(product.id);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -18,15 +21,37 @@ const ProductCard = ({ product }: ProductCardProps) => {
     toast.success(`${product.name} ajouté au panier`);
   };
 
+  const handleToggleWishlist = (e: React.MouseEvent) => {
+    e.preventDefault();
+    toggleWishlist(product);
+    if (isFavorite) {
+      toast.info(`${product.name} retiré des favoris`);
+    } else {
+      toast.success(`${product.name} ajouté aux favoris`);
+    }
+  };
+
   return (
     <Link to={`/product/${product.id}`} className="group">
       <div className="gradient-card rounded-lg overflow-hidden shadow-card hover-lift">
-        <div className="aspect-square overflow-hidden bg-muted">
+        <div className="aspect-square overflow-hidden bg-muted relative">
           <img
             src={product.image}
             alt={product.name}
             className="w-full h-full object-cover transition-smooth group-hover:scale-110"
           />
+          {/* Wishlist Button */}
+          <Button
+            size="icon"
+            variant="secondary"
+            onClick={handleToggleWishlist}
+            className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-smooth"
+            aria-label={isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+          >
+            <Heart
+              className={`w-4 h-4 ${isFavorite ? 'fill-accent text-accent' : ''}`}
+            />
+          </Button>
         </div>
         <div className="p-4 space-y-3">
           <div>
