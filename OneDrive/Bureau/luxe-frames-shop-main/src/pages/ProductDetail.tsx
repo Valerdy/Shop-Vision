@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '@/data/products';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ShoppingCart, Check } from 'lucide-react';
+import { ArrowLeft, ShoppingCart, Check, Star, User, Package, AlertCircle } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useRecentlyViewed } from '@/hooks/useRecentlyViewed';
 import { toast } from 'sonner';
@@ -18,9 +18,17 @@ const ProductDetail = () => {
   const { addToCart } = useCart();
   const { recentProducts, addRecentProduct } = useRecentlyViewed();
 
+  // Scroll en haut à chaque changement de produit
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [id]);
+
   useEffect(() => {
     if (product) {
       addRecentProduct(product);
+      // Reset quantity when product changes
+      setQuantity(1);
+      setSelectedImage(0);
     }
   }, [product]);
 
