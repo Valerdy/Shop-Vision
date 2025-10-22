@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Heart } from 'lucide-react';
+import { ShoppingCart, Heart, Star, Package } from 'lucide-react';
 import { Product } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
@@ -71,6 +71,24 @@ const ProductCard = ({ product }: ProductCardProps) => {
               <ShoppingCart className="w-4 h-4" />
             </Button>
           </div>
+
+          {/* Rating & Stock */}
+          <div className="flex items-center justify-between text-xs">
+            {product.rating && (
+              <div className="flex items-center gap-1">
+                <Star className="w-3 h-3 fill-accent text-accent" />
+                <span className="font-medium">{product.rating}</span>
+                <span className="text-muted-foreground">({product.reviewsCount})</span>
+              </div>
+            )}
+            <div className="flex items-center gap-1">
+              <Package className="w-3 h-3 text-muted-foreground" />
+              <span className={`font-medium ${product.stock < 10 ? 'text-destructive' : 'text-muted-foreground'}`}>
+                {product.stock < 10 ? `Plus que ${product.stock}` : `${product.stock} en stock`}
+              </span>
+            </div>
+          </div>
+
           <div className="flex gap-2 text-xs">
             <span className="px-2 py-1 bg-muted rounded-md text-muted-foreground">
               {product.category}
