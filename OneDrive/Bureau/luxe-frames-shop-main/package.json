@@ -13,15 +13,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "cd server && npm start",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:seed": "prisma db seed",
-    "prisma:studio": "prisma studio",
-    "prisma:reset": "prisma migrate reset",
-    "db:setup": "prisma migrate dev && prisma db seed"
-  },
-  "prisma": {
-    "seed": "tsx prisma/seed.ts"
+    "prisma:generate": "cd server && npm run prisma:generate",
+    "prisma:migrate": "cd server && npm run prisma:migrate",
+    "prisma:seed": "cd server && npm run prisma:seed",
+    "prisma:studio": "cd server && npm run prisma:studio",
+    "prisma:reset": "cd server && npm run prisma:reset",
+    "db:setup": "cd server && npm run db:setup"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
