@@ -4,16 +4,16 @@ echo LuxVision - Configuration Initiale
 echo ========================================
 echo.
 
-echo [1/5] Verification du fichier .env...
-if not exist .env (
-    echo Fichier .env non trouve. Creation...
-    copy .env.example .env
+echo [1/5] Verification du fichier server/.env...
+if not exist server\.env (
+    echo Fichier server/.env non trouve. Creation...
+    copy .env.example server\.env
     echo.
-    echo IMPORTANT: Editez le fichier .env et modifiez DATABASE_URL avec vos identifiants PostgreSQL
-    echo Appuyez sur une touche apres avoir modifie .env...
+    echo IMPORTANT: Editez le fichier server/.env et modifiez DATABASE_URL avec vos identifiants PostgreSQL
+    echo Appuyez sur une touche apres avoir modifie server/.env...
     pause
 ) else (
-    echo Fichier .env existe deja.
+    echo Fichier server/.env existe deja.
 )
 echo.
 

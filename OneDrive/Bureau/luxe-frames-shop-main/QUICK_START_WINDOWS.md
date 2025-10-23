@@ -37,9 +37,9 @@ Assurez-vous que PostgreSQL est installé et démarré sur votre machine.
 
 ### Étape 2 : Modifier le fichier .env
 
-J'ai créé un fichier `.env` pour vous. **MODIFIEZ-LE** avec vos identifiants :
+J'ai créé un fichier `.env` dans le dossier `server/`. **MODIFIEZ-LE** avec vos identifiants :
 
-Ouvrez `.env` et modifiez cette ligne :
+Ouvrez `server/.env` et modifiez cette ligne :
 
 ```env
 DATABASE_URL="postgresql://postgres:VOTRE_MOT_DE_PASSE@localhost:5432/luxvision_db?schema=public"
@@ -163,7 +163,7 @@ taskkill /PID 12345 /F
 ### Erreur "Can't reach database server"
 
 1. Vérifiez que PostgreSQL est démarré (Services Windows)
-2. Vérifiez le mot de passe dans `.env`
+2. Vérifiez le mot de passe dans `server/.env`
 3. Vérifiez que la base `luxvision_db` existe
 
 ### Erreur "role postgres does not exist"
@@ -175,7 +175,7 @@ Créez l'utilisateur postgres :
 CREATE USER postgres WITH PASSWORD 'votre_mot_de_passe' SUPERUSER;
 ```
 
-Ou changez `DATABASE_URL` dans `.env` pour utiliser votre nom d'utilisateur Windows.
+Ou changez `DATABASE_URL` dans `server/.env` pour utiliser votre nom d'utilisateur Windows.
 
 ---
 
