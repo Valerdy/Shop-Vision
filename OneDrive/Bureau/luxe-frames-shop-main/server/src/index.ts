@@ -6,6 +6,12 @@ import dotenv from 'dotenv';
 
 // Import des routes
 import authRoutes from './routes/auth.routes';
+import productRoutes from './routes/product.routes';
+import orderRoutes from './routes/order.routes';
+import reviewRoutes from './routes/review.routes';
+import wishlistRoutes from './routes/wishlist.routes';
+import cartRoutes from './routes/cart.routes';
+import addressRoutes from './routes/address.routes';
 
 // Import des middlewares
 import { errorHandler, notFoundHandler } from './middleware/error.middleware';
@@ -65,20 +71,24 @@ app.get('/api/v1', (req, res) => {
     version: '1.0.0',
     endpoints: {
       auth: '/api/v1/auth',
-      products: '/api/v1/products (coming soon)',
-      orders: '/api/v1/orders (coming soon)',
-      users: '/api/v1/users (coming soon)',
+      products: '/api/v1/products',
+      orders: '/api/v1/orders',
+      reviews: '/api/v1/reviews',
+      wishlist: '/api/v1/wishlist',
+      cart: '/api/v1/cart',
+      addresses: '/api/v1/addresses',
     },
   });
 });
 
-// Routes d'authentification
+// Routes API
 app.use('/api/v1/auth', authRoutes);
-
-// TODO: Ajouter d'autres routes
-// app.use('/api/v1/products', productRoutes);
-// app.use('/api/v1/orders', orderRoutes);
-// app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/products', productRoutes);
+app.use('/api/v1/orders', orderRoutes);
+app.use('/api/v1/reviews', reviewRoutes);
+app.use('/api/v1/wishlist', wishlistRoutes);
+app.use('/api/v1/cart', cartRoutes);
+app.use('/api/v1/addresses', addressRoutes);
 
 // ============================================
 // GESTION DES ERREURS
