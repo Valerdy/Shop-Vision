@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { products } from '@/data/products';
+import { productsAPI } from '@/services/api';
 import ProductCard from '@/components/ProductCard';
 import ProductFilter from '@/components/ProductFilter';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 import {
   Select,
   SelectContent,
@@ -34,6 +36,26 @@ const Shop = () => {
   });
 
   const [sortBy, setSortBy] = useState<SortOption>('featured');
+  const [products, setProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch products from API
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        const response = await productsAPI.getAll();
+        setProducts(response.data.products || []);
+      } catch (error: any) {
+        console.error('Error fetching products:', error);
+        toast.error('Erreur lors du chargement des produits');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   // Filter products
   const filteredProducts = products.filter((product) => {
@@ -69,10 +91,22 @@ const Shop = () => {
     }
   });
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1 flex items-center justify-center">
+          <Loader2 className="h-12 w-12 animate-spin text-primary" />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       <main className="flex-1 py-8">
         <div className="container mx-auto px-4">
           <div className="mb-8 animate-fade-in">
