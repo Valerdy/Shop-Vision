@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { products } from '@/data/products';
-import { reviews } from '@/data/reviews';
+import { productsAPI, reviewsAPI } from '@/services/api';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ShoppingCart, Check, Star, User, Package, AlertCircle, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, ShoppingCart, Check, Star, User, Package, AlertCircle, ShieldCheck, Loader2 } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useRecentlyViewed } from '@/hooks/useRecentlyViewed';
 import { toast } from 'sonner';
@@ -13,10 +12,11 @@ import ProductCard from '@/components/ProductCard';
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const product = products.find((p) => p.id === id);
-  const productReviews = reviews.filter((r) => r.productId === id);
+  const [product, setProduct] = useState<any>(null);
+  const [productReviews, setProductReviews] = useState<any[]>([]);
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
   const { recentProducts, addRecentProduct } = useRecentlyViewed();
 
@@ -25,14 +25,57 @@ const ProductDetail = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [id]);
 
+  // Fetch product and reviews
   useEffect(() => {
-    if (product) {
-      addRecentProduct(product);
-      // Reset quantity when product changes
-      setQuantity(1);
-      setSelectedImage(0);
-    }
-  }, [product]);
+    const fetchProductData = async () => {
+      if (!id) return;
+
+      try {
+        setLoading(true);
+
+        // Fetch product details
+        const productResponse = await productsAPI.getById(id);
+        const fetchedProduct = productResponse.data.product;
+        setProduct(fetchedProduct);
+
+        // Add to recently viewed
+        addRecentProduct(fetchedProduct);
+
+        // Fetch reviews
+        try {
+          const reviewsResponse = await reviewsAPI.getByProduct(id);
+          setProductReviews(reviewsResponse.data.reviews || []);
+        } catch (reviewError) {
+          console.error('Error fetching reviews:', reviewError);
+          setProductReviews([]);
+        }
+
+        // Reset quantity and selected image
+        setQuantity(1);
+        setSelectedImage(0);
+      } catch (error: any) {
+        console.error('Error fetching product:', error);
+        toast.error('Erreur lors du chargement du produit');
+        setProduct(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProductData();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1 flex items-center justify-center">
+          <Loader2 className="h-12 w-12 animate-spin text-primary" />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 
   if (!product) {
     return (
