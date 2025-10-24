@@ -174,7 +174,7 @@ const AdminDashboard = () => {
               <CardDescription>
                 Voir et gérer les utilisateurs
               </CardDescription>
-            </CardContent>
+            </CardHeader>
             <CardContent>
               <Button className="w-full" variant="outline" disabled>
                 Bientôt disponible
