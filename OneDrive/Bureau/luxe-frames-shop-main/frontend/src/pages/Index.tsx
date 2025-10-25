@@ -1,14 +1,33 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Shield, Truck, RefreshCw } from 'lucide-react';
+import { ArrowRight, Shield, Truck, RefreshCw, Loader2 } from 'lucide-react';
 import heroImage from '@/assets/hero-eyewear.jpg';
 import ProductCard from '@/components/ProductCard';
-import { products } from '@/data/products';
+import productService from '@/services/productService';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const Index = () => {
-  const featuredProducts = products.slice(0, 4);
+  const [featuredProducts, setFeaturedProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFeatured = async () => {
+      try {
+        setLoading(true);
+        const response = await productService.getFeatured(4);
+        setFeaturedProducts(response.data.products || []);
+      } catch (error) {
+        console.error('Error fetching featured products:', error);
+        setFeaturedProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFeatured();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -85,11 +104,17 @@ const Index = () => {
                 Découvrez notre sélection premium de lunettes conçues pour l'individu moderne
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              {featuredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
+            {loading ? (
+              <div className="flex justify-center items-center py-12">
+                <Loader2 className="h-12 w-12 animate-spin text-primary" />
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                {featuredProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            )}
             <div className="text-center animate-fade-in">
               <Link to="/shop">
                 <Button variant="default" size="lg" className="hover-glow">

@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { productsAPI, reviewsAPI } from '@/services/api';
+import productService from '@/services/productService';
+import { reviewsAPI } from '@/services/api';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ShoppingCart, Check, Star, User, Package, AlertCircle, ShieldCheck, Loader2 } from 'lucide-react';
+import { ArrowLeft, ShoppingCart, Check, Star, User, Package, AlertCircle, ShieldCheck, Loader2, WifiOff } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 import { useRecentlyViewed } from '@/hooks/useRecentlyViewed';
 import { toast } from 'sonner';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -17,6 +19,7 @@ const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [usingCache, setUsingCache] = useState(false);
   const { addToCart } = useCart();
   const { recentProducts, addRecentProduct } = useRecentlyViewed();
 
@@ -33,10 +36,19 @@ const ProductDetail = () => {
       try {
         setLoading(true);
 
-        // Fetch product details
-        const productResponse = await productsAPI.getById(id);
+        // Fetch product details with fallback
+        const productResponse = await productService.getById(id);
         const fetchedProduct = productResponse.data.product;
         setProduct(fetchedProduct);
+        setUsingCache(productResponse.fromCache || false);
+
+        // Show info if using cache
+        if (productResponse.fromCache) {
+          toast.info('Mode hors ligne - Données locales', {
+            description: 'Le backend n\'est pas disponible.',
+            duration: 3000,
+          });
+        }
 
         // Add to recently viewed
         addRecentProduct(fetchedProduct);
@@ -112,6 +124,16 @@ const ProductDetail = () => {
             <ArrowLeft className="w-4 h-4" />
             Retour à la Boutique
           </Link>
+
+          {/* Offline indicator */}
+          {usingCache && (
+            <Alert className="mb-6 bg-amber-50 border-amber-200 dark:bg-amber-950 dark:border-amber-800">
+              <WifiOff className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+              <AlertDescription className="text-amber-800 dark:text-amber-200">
+                <strong>Mode hors ligne :</strong> Vous consultez les données de démonstration.
+              </AlertDescription>
+            </Alert>
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Image Gallery */}
