@@ -1,23 +1,4 @@
-export interface Product {
-  id: string;
-  name: string;
-  brand: string;
-  price: number;
-  image: string;
-  images: string[];
-  category: 'optical' | 'sunglasses';
-  gender: 'men' | 'women' | 'unisex';
-  description: string;
-  features: string[];
-  frameShape: string;
-  material: string;
-  color: string;
-  stock: number;
-  rating?: number;
-  reviewsCount?: number;
-}
-
-export const products: Product[] = [
+[
   {
     "id": "1",
     "name": "Classic Round",
@@ -690,4 +671,4 @@ export const products: Product[] = [
     "reviewsCount": 15,
     "isFeatured": true
   }
-];
+]
