@@ -23,6 +23,18 @@ const ProductDetail = () => {
   const { addToCart } = useCart();
   const { recentProducts, addRecentProduct } = useRecentlyViewed();
 
+  // Translation mapping for categories and genders
+  const categoryLabels: Record<string, string> = {
+    'optical': 'Optique',
+    'sunglasses': 'Lunettes de soleil'
+  };
+
+  const genderLabels: Record<string, string> = {
+    'men': 'Homme',
+    'women': 'Femme',
+    'unisex': 'Mixte'
+  };
+
   // Scroll en haut à chaque changement de produit
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -205,8 +217,8 @@ const ProductDetail = () => {
               </div>
 
               <div className="flex gap-4 text-sm">
-                <span className="px-3 py-1 bg-muted rounded-md capitalize">{product.category}</span>
-                <span className="px-3 py-1 bg-muted rounded-md capitalize">{product.gender}</span>
+                <span className="px-3 py-1 bg-muted rounded-md">{categoryLabels[product.category] || product.category}</span>
+                <span className="px-3 py-1 bg-muted rounded-md">{genderLabels[product.gender] || product.gender}</span>
                 <span className="px-3 py-1 bg-muted rounded-md">{product.frameShape}</span>
               </div>
 

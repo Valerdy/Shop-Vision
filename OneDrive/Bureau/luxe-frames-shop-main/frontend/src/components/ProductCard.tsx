@@ -15,6 +15,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const { isInWishlist, toggleWishlist } = useWishlist();
   const isFavorite = isInWishlist(product.id);
 
+  // Translation mapping for categories and genders
+  const categoryLabels: Record<string, string> = {
+    'optical': 'Optique',
+    'sunglasses': 'Lunettes de soleil'
+  };
+
+  const genderLabels: Record<string, string> = {
+    'men': 'Homme',
+    'women': 'Femme',
+    'unisex': 'Mixte'
+  };
+
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     addToCart(product);
@@ -91,10 +103,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
           <div className="flex gap-2 text-xs">
             <span className="px-2 py-1 bg-muted rounded-md text-muted-foreground">
-              {product.category}
+              {categoryLabels[product.category] || product.category}
             </span>
             <span className="px-2 py-1 bg-muted rounded-md text-muted-foreground">
-              {product.gender}
+              {genderLabels[product.gender] || product.gender}
             </span>
           </div>
         </div>

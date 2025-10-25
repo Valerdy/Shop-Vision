@@ -19,6 +19,18 @@ const ProductFilter = ({ filters, onFilterChange }: ProductFilterProps) => {
   const genders = ['men', 'women', 'unisex'];
   const brands = ['LuxVision', 'SkyLine', 'Femme', 'ModernEdge', 'Vintage Soul', 'ActiveVision', 'Diva', 'Essence'];
 
+  // Translation mapping for categories and genders
+  const categoryLabels: Record<string, string> = {
+    'optical': 'Optique',
+    'sunglasses': 'Lunettes de soleil'
+  };
+
+  const genderLabels: Record<string, string> = {
+    'men': 'Homme',
+    'women': 'Femme',
+    'unisex': 'Mixte'
+  };
+
   const handleCheckboxChange = (type: keyof FilterState, value: string) => {
     const currentValues = filters[type] as string[];
     const newValues = currentValues.includes(value)
@@ -34,7 +46,7 @@ const ProductFilter = ({ filters, onFilterChange }: ProductFilterProps) => {
   return (
     <div className="space-y-6 gradient-card rounded-lg p-6 shadow-card sticky top-24">
       <div>
-        <h3 className="font-semibold mb-4">Filters</h3>
+        <h3 className="font-semibold mb-4">Filtres</h3>
       </div>
 
       {/* Category */}
@@ -49,9 +61,9 @@ const ProductFilter = ({ filters, onFilterChange }: ProductFilterProps) => {
             />
             <label
               htmlFor={`category-${category}`}
-              className="text-sm text-muted-foreground cursor-pointer capitalize"
+              className="text-sm text-muted-foreground cursor-pointer"
             >
-              {category}
+              {categoryLabels[category]}
             </label>
           </div>
         ))}
@@ -59,7 +71,7 @@ const ProductFilter = ({ filters, onFilterChange }: ProductFilterProps) => {
 
       {/* Gender */}
       <div className="space-y-3">
-        <Label className="text-sm font-semibold">Gender</Label>
+        <Label className="text-sm font-semibold">Genre</Label>
         {genders.map((gender) => (
           <div key={gender} className="flex items-center gap-2">
             <Checkbox
@@ -69,9 +81,9 @@ const ProductFilter = ({ filters, onFilterChange }: ProductFilterProps) => {
             />
             <label
               htmlFor={`gender-${gender}`}
-              className="text-sm text-muted-foreground cursor-pointer capitalize"
+              className="text-sm text-muted-foreground cursor-pointer"
             >
-              {gender}
+              {genderLabels[gender]}
             </label>
           </div>
         ))}
@@ -79,7 +91,7 @@ const ProductFilter = ({ filters, onFilterChange }: ProductFilterProps) => {
 
       {/* Brand */}
       <div className="space-y-3">
-        <Label className="text-sm font-semibold">Brand</Label>
+        <Label className="text-sm font-semibold">Marque</Label>
         {brands.map((brand) => (
           <div key={brand} className="flex items-center gap-2">
             <Checkbox
