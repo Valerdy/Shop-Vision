@@ -1,0 +1,674 @@
+[
+  {
+    "id": "1",
+    "name": "Classic Round",
+    "brand": "LuxVision",
+    "price": 95000,
+    "image": "/placeholder.svg?height=400&width=400&text=Classic+Round",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Classic+Round+1",
+      "/placeholder.svg?height=600&width=600&text=Classic+Round+2",
+      "/placeholder.svg?height=600&width=600&text=Classic+Round+3"
+    ],
+    "category": "optical",
+    "gender": "unisex",
+    "description": "Timeless round frames that blend vintage charm with modern sophistication.",
+    "features": [
+      "Lightweight acetate",
+      "Spring hinges",
+      "Anti-reflective coating",
+      "UV protection"
+    ],
+    "frameShape": "Round",
+    "material": "Acetate",
+    "color": "Tortoise",
+    "stock": 12,
+    "rating": 4.5,
+    "reviewsCount": 28,
+    "isFeatured": true
+  },
+  {
+    "id": "2",
+    "name": "Aviator Pro",
+    "brand": "SkyLine",
+    "price": 125000,
+    "image": "/placeholder.svg?height=400&width=400&text=Aviator+Pro",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Aviator+Pro+1",
+      "/placeholder.svg?height=600&width=600&text=Aviator+Pro+2",
+      "/placeholder.svg?height=600&width=600&text=Aviator+Pro+3"
+    ],
+    "category": "sunglasses",
+    "gender": "unisex",
+    "description": "Iconic aviator sunglasses with premium polarized lenses for ultimate eye protection.",
+    "features": [
+      "Polarized lenses",
+      "Metal frame",
+      "100% UV protection",
+      "Adjustable nose pads"
+    ],
+    "frameShape": "Aviator",
+    "material": "Metal",
+    "color": "Gold",
+    "stock": 8,
+    "rating": 4.8,
+    "reviewsCount": 42,
+    "isFeatured": true
+  },
+  {
+    "id": "3",
+    "name": "Cat Eye Elegance",
+    "brand": "Femme",
+    "price": 105000,
+    "image": "/placeholder.svg?height=400&width=400&text=Cat+Eye",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Cat+Eye+1",
+      "/placeholder.svg?height=600&width=600&text=Cat+Eye+2",
+      "/placeholder.svg?height=600&width=600&text=Cat+Eye+3"
+    ],
+    "category": "optical",
+    "gender": "women",
+    "description": "Sophisticated cat-eye frames that add a touch of glamour to any look.",
+    "features": [
+      "Handcrafted acetate",
+      "Flexible temples",
+      "Scratch-resistant",
+      "Blue light filtering"
+    ],
+    "frameShape": "Cat Eye",
+    "material": "Acetate",
+    "color": "Black",
+    "stock": 15,
+    "rating": 4.6,
+    "reviewsCount": 35,
+    "isFeatured": true
+  },
+  {
+    "id": "4",
+    "name": "Urban Square",
+    "brand": "ModernEdge",
+    "price": 85000,
+    "image": "/placeholder.svg?height=400&width=400&text=Urban+Square",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Urban+Square+1",
+      "/placeholder.svg?height=600&width=600&text=Urban+Square+2",
+      "/placeholder.svg?height=600&width=600&text=Urban+Square+3"
+    ],
+    "category": "optical",
+    "gender": "men",
+    "description": "Contemporary square frames perfect for the modern professional.",
+    "features": [
+      "Titanium frame",
+      "Adjustable fit",
+      "Anti-glare coating",
+      "Lightweight design"
+    ],
+    "frameShape": "Square",
+    "material": "Titanium",
+    "color": "Matte Black",
+    "stock": 20,
+    "rating": 4.7,
+    "reviewsCount": 31,
+    "isFeatured": false
+  },
+  {
+    "id": "5",
+    "name": "Retro Wayfarer",
+    "brand": "Vintage Soul",
+    "price": 90000,
+    "image": "/placeholder.svg?height=400&width=400&text=Retro+Wayfarer",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Retro+Wayfarer+1",
+      "/placeholder.svg?height=600&width=600&text=Retro+Wayfarer+2",
+      "/placeholder.svg?height=600&width=600&text=Retro+Wayfarer+3"
+    ],
+    "category": "sunglasses",
+    "gender": "unisex",
+    "description": "Classic wayfarer style with a modern twist for the trendsetter.",
+    "features": [
+      "Polarized lenses",
+      "Acetate frame",
+      "UV400 protection",
+      "Iconic design"
+    ],
+    "frameShape": "Wayfarer",
+    "material": "Acetate",
+    "color": "Tortoise Brown",
+    "stock": 5,
+    "rating": 4.9,
+    "reviewsCount": 56,
+    "isFeatured": true
+  },
+  {
+    "id": "6",
+    "name": "Sport Shield",
+    "brand": "ActiveVision",
+    "price": 115000,
+    "image": "/placeholder.svg?height=400&width=400&text=Sport+Shield",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Sport+Shield+1",
+      "/placeholder.svg?height=600&width=600&text=Sport+Shield+2",
+      "/placeholder.svg?height=600&width=600&text=Sport+Shield+3"
+    ],
+    "category": "sunglasses",
+    "gender": "unisex",
+    "description": "High-performance sports sunglasses designed for active lifestyles.",
+    "features": [
+      "Impact-resistant",
+      "Wraparound design",
+      "Anti-fog coating",
+      "Rubberized grip"
+    ],
+    "frameShape": "Shield",
+    "material": "TR90",
+    "color": "Matte Grey",
+    "stock": 18,
+    "rating": 4.4,
+    "reviewsCount": 22,
+    "isFeatured": false
+  },
+  {
+    "id": "7",
+    "name": "Oversized Glam",
+    "brand": "Diva",
+    "price": 110000,
+    "image": "/placeholder.svg?height=400&width=400&text=Oversized+Glam",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Oversized+Glam+1",
+      "/placeholder.svg?height=600&width=600&text=Oversized+Glam+2",
+      "/placeholder.svg?height=600&width=600&text=Oversized+Glam+3"
+    ],
+    "category": "sunglasses",
+    "gender": "women",
+    "description": "Bold oversized sunglasses that make a statement wherever you go.",
+    "features": [
+      "Gradient lenses",
+      "Large coverage",
+      "Metal accents",
+      "Designer style"
+    ],
+    "frameShape": "Oversized",
+    "material": "Acetate",
+    "color": "Burgundy",
+    "stock": 10,
+    "rating": 4.3,
+    "reviewsCount": 19,
+    "isFeatured": false
+  },
+  {
+    "id": "8",
+    "name": "Minimalist Wire",
+    "brand": "Essence",
+    "price": 75000,
+    "image": "/placeholder.svg?height=400&width=400&text=Minimalist+Wire",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Minimalist+Wire+1",
+      "/placeholder.svg?height=600&width=600&text=Minimalist+Wire+2",
+      "/placeholder.svg?height=600&width=600&text=Minimalist+Wire+3"
+    ],
+    "category": "optical",
+    "gender": "unisex",
+    "description": "Ultra-lightweight wire frames for those who prefer understated elegance.",
+    "features": [
+      "Thin wire frame",
+      "Memory metal",
+      "Barely-there feel",
+      "Adjustable nose pads"
+    ],
+    "frameShape": "Oval",
+    "material": "Metal",
+    "color": "Silver",
+    "stock": 25,
+    "rating": 4.6,
+    "reviewsCount": 38,
+    "isFeatured": false
+  },
+  {
+    "id": "9",
+    "name": "Executive Rectangular",
+    "brand": "BusinessPro",
+    "price": 98000,
+    "image": "/placeholder.svg?height=400&width=400&text=Executive+Rectangular",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Executive+Rectangular+1",
+      "/placeholder.svg?height=600&width=600&text=Executive+Rectangular+2",
+      "/placeholder.svg?height=600&width=600&text=Executive+Rectangular+3"
+    ],
+    "category": "optical",
+    "gender": "men",
+    "description": "Montures rectangulaires élégantes pour le professionnel exigeant.",
+    "features": [
+      "Acier inoxydable",
+      "Design ergonomique",
+      "Verres anti-lumière bleue",
+      "Étui premium inclus"
+    ],
+    "frameShape": "Rectangle",
+    "material": "Stainless Steel",
+    "color": "Gun Metal",
+    "stock": 14,
+    "rating": 4.7,
+    "reviewsCount": 45,
+    "isFeatured": false
+  },
+  {
+    "id": "10",
+    "name": "Vintage Browline",
+    "brand": "Retro Chic",
+    "price": 88000,
+    "image": "/placeholder.svg?height=400&width=400&text=Vintage+Browline",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Vintage+Browline+1",
+      "/placeholder.svg?height=600&width=600&text=Vintage+Browline+2",
+      "/placeholder.svg?height=600&width=600&text=Vintage+Browline+3"
+    ],
+    "category": "optical",
+    "gender": "unisex",
+    "description": "Style browline classique qui rappelle l'âge d'or des années 50.",
+    "features": [
+      "Acétate haut de gamme",
+      "Pont métallique",
+      "Charnières flexibles",
+      "Look intemporel"
+    ],
+    "frameShape": "Browline",
+    "material": "Acetate & Metal",
+    "color": "Tortoise & Gold",
+    "stock": 11,
+    "rating": 4.8,
+    "reviewsCount": 52,
+    "isFeatured": true
+  },
+  {
+    "id": "11",
+    "name": "Crystal Clear",
+    "brand": "ModernVue",
+    "price": 79000,
+    "image": "/placeholder.svg?height=400&width=400&text=Crystal+Clear",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Crystal+Clear+1",
+      "/placeholder.svg?height=600&width=600&text=Crystal+Clear+2",
+      "/placeholder.svg?height=600&width=600&text=Crystal+Clear+3"
+    ],
+    "category": "optical",
+    "gender": "women",
+    "description": "Montures transparentes tendance pour un look moderne et frais.",
+    "features": [
+      "Acétate transparent",
+      "Ultra-légères",
+      "Design minimaliste",
+      "Protection UV"
+    ],
+    "frameShape": "Round",
+    "material": "Acetate",
+    "color": "Crystal Clear",
+    "stock": 22,
+    "rating": 4.5,
+    "reviewsCount": 67,
+    "isFeatured": false
+  },
+  {
+    "id": "12",
+    "name": "Mirrored Sport",
+    "brand": "ActiveVision",
+    "price": 135000,
+    "image": "/placeholder.svg?height=400&width=400&text=Mirrored+Sport",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Mirrored+Sport+1",
+      "/placeholder.svg?height=600&width=600&text=Mirrored+Sport+2",
+      "/placeholder.svg?height=600&width=600&text=Mirrored+Sport+3"
+    ],
+    "category": "sunglasses",
+    "gender": "unisex",
+    "description": "Lunettes de sport haute performance avec verres miroir pour une visibilité optimale.",
+    "features": [
+      "Verres miroir polarisés",
+      "Résistant aux chocs",
+      "Anti-buée",
+      "Branches ajustables"
+    ],
+    "frameShape": "Sport Wrap",
+    "material": "TR90",
+    "color": "Black & Blue",
+    "stock": 16,
+    "rating": 4.9,
+    "reviewsCount": 73,
+    "isFeatured": true
+  },
+  {
+    "id": "13",
+    "name": "Butterfly Glamour",
+    "brand": "Femme",
+    "price": 118000,
+    "image": "/placeholder.svg?height=400&width=400&text=Butterfly+Glamour",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Butterfly+Glamour+1",
+      "/placeholder.svg?height=600&width=600&text=Butterfly+Glamour+2",
+      "/placeholder.svg?height=600&width=600&text=Butterfly+Glamour+3"
+    ],
+    "category": "sunglasses",
+    "gender": "women",
+    "description": "Forme papillon sophistiquée avec détails luxueux pour un style glamour.",
+    "features": [
+      "Verres dégradés",
+      "Ornements cristaux",
+      "Protection UV400",
+      "Étui de luxe"
+    ],
+    "frameShape": "Butterfly",
+    "material": "Acetate",
+    "color": "Plum Purple",
+    "stock": 9,
+    "rating": 4.6,
+    "reviewsCount": 41,
+    "isFeatured": false
+  },
+  {
+    "id": "14",
+    "name": "Tech Flex",
+    "brand": "FlexiFrame",
+    "price": 92000,
+    "image": "/placeholder.svg?height=400&width=400&text=Tech+Flex",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Tech+Flex+1",
+      "/placeholder.svg?height=600&width=600&text=Tech+Flex+2",
+      "/placeholder.svg?height=600&width=600&text=Tech+Flex+3"
+    ],
+    "category": "optical",
+    "gender": "men",
+    "description": "Montures ultra-flexibles avec technologie memory shape, parfaites pour un usage quotidien.",
+    "features": [
+      "Mémoire de forme",
+      "Incassable",
+      "Hypoallergénique",
+      "Design ergonomique"
+    ],
+    "frameShape": "Rectangle",
+    "material": "TR90",
+    "color": "Navy Blue",
+    "stock": 19,
+    "rating": 4.8,
+    "reviewsCount": 58,
+    "isFeatured": false
+  },
+  {
+    "id": "15",
+    "name": "Clubmaster Elite",
+    "brand": "Heritage",
+    "price": 108000,
+    "image": "/placeholder.svg?height=400&width=400&text=Clubmaster+Elite",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Clubmaster+Elite+1",
+      "/placeholder.svg?height=600&width=600&text=Clubmaster+Elite+2",
+      "/placeholder.svg?height=600&width=600&text=Clubmaster+Elite+3"
+    ],
+    "category": "sunglasses",
+    "gender": "unisex",
+    "description": "Style clubmaster iconique revisité avec des finitions premium.",
+    "features": [
+      "Verres polarisés G-15",
+      "Pont doré",
+      "Branches en acétate",
+      "Protection solaire maximale"
+    ],
+    "frameShape": "Clubmaster",
+    "material": "Acetate & Metal",
+    "color": "Havana & Gold",
+    "stock": 13,
+    "rating": 4.9,
+    "reviewsCount": 84,
+    "isFeatured": true
+  },
+  {
+    "id": "16",
+    "name": "Geometric Edge",
+    "brand": "ModernEdge",
+    "price": 95000,
+    "image": "/placeholder.svg?height=400&width=400&text=Geometric+Edge",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Geometric+Edge+1",
+      "/placeholder.svg?height=600&width=600&text=Geometric+Edge+2",
+      "/placeholder.svg?height=600&width=600&text=Geometric+Edge+3"
+    ],
+    "category": "optical",
+    "gender": "women",
+    "description": "Design géométrique audacieux pour celles qui osent se démarquer.",
+    "features": [
+      "Forme hexagonale",
+      "Acétate italien",
+      "Branches sculptées",
+      "Anti-reflet premium"
+    ],
+    "frameShape": "Geometric",
+    "material": "Acetate",
+    "color": "Rose Gold",
+    "stock": 8,
+    "rating": 4.4,
+    "reviewsCount": 29,
+    "isFeatured": false
+  },
+  {
+    "id": "17",
+    "name": "Pilot Classic",
+    "brand": "SkyLine",
+    "price": 142000,
+    "image": "/placeholder.svg?height=400&width=400&text=Pilot+Classic",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Pilot+Classic+1",
+      "/placeholder.svg?height=600&width=600&text=Pilot+Classic+2",
+      "/placeholder.svg?height=600&width=600&text=Pilot+Classic+3"
+    ],
+    "category": "sunglasses",
+    "gender": "men",
+    "description": "Lunettes de pilote authentiques avec verres haute performance.",
+    "features": [
+      "Verres photochromiques",
+      "Titane ultraléger",
+      "Protection UV extrême",
+      "Ajustement personnalisable"
+    ],
+    "frameShape": "Aviator",
+    "material": "Titanium",
+    "color": "Silver",
+    "stock": 7,
+    "rating": 5.0,
+    "reviewsCount": 91,
+    "isFeatured": true
+  },
+  {
+    "id": "18",
+    "name": "Bohemian Round",
+    "brand": "Vintage Soul",
+    "price": 82000,
+    "image": "/placeholder.svg?height=400&width=400&text=Bohemian+Round",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Bohemian+Round+1",
+      "/placeholder.svg?height=600&width=600&text=Bohemian+Round+2",
+      "/placeholder.svg?height=600&width=600&text=Bohemian+Round+3"
+    ],
+    "category": "sunglasses",
+    "gender": "unisex",
+    "description": "Style bohème avec montures rondes et détails artistiques.",
+    "features": [
+      "Verres teintés vintage",
+      "Gravures artisanales",
+      "Acétate recyclé",
+      "Look rétro"
+    ],
+    "frameShape": "Round",
+    "material": "Recycled Acetate",
+    "color": "Amber Brown",
+    "stock": 15,
+    "rating": 4.7,
+    "reviewsCount": 63,
+    "isFeatured": false
+  },
+  {
+    "id": "19",
+    "name": "Smart Blue Guard",
+    "brand": "TechVision",
+    "price": 105000,
+    "image": "/placeholder.svg?height=400&width=400&text=Smart+Blue+Guard",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Smart+Blue+Guard+1",
+      "/placeholder.svg?height=600&width=600&text=Smart+Blue+Guard+2",
+      "/placeholder.svg?height=600&width=600&text=Smart+Blue+Guard+3"
+    ],
+    "category": "optical",
+    "gender": "unisex",
+    "description": "Protection avancée contre la lumière bleue des écrans pour le travail numérique.",
+    "features": [
+      "Filtre lumière bleue 100%",
+      "Verres anti-fatigue",
+      "Monture ergonomique",
+      "Certification médicale"
+    ],
+    "frameShape": "Square",
+    "material": "TR90",
+    "color": "Matte Black",
+    "stock": 28,
+    "rating": 4.8,
+    "reviewsCount": 112,
+    "isFeatured": true
+  },
+  {
+    "id": "20",
+    "name": "Pearl Elegance",
+    "brand": "Diva",
+    "price": 128000,
+    "image": "/placeholder.svg?height=400&width=400&text=Pearl+Elegance",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Pearl+Elegance+1",
+      "/placeholder.svg?height=600&width=600&text=Pearl+Elegance+2",
+      "/placeholder.svg?height=600&width=600&text=Pearl+Elegance+3"
+    ],
+    "category": "optical",
+    "gender": "women",
+    "description": "Montures ornées de perles pour une touche de sophistication absolue.",
+    "features": [
+      "Détails en perles",
+      "Acétate premium",
+      "Design exclusif",
+      "Coffret cadeau"
+    ],
+    "frameShape": "Cat Eye",
+    "material": "Acetate",
+    "color": "Pearl White",
+    "stock": 6,
+    "rating": 4.9,
+    "reviewsCount": 37,
+    "isFeatured": false
+  },
+  {
+    "id": "21",
+    "name": "Mountain Trekker",
+    "brand": "ActiveVision",
+    "price": 148000,
+    "image": "/placeholder.svg?height=400&width=400&text=Mountain+Trekker",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Mountain+Trekker+1",
+      "/placeholder.svg?height=600&width=600&text=Mountain+Trekker+2",
+      "/placeholder.svg?height=600&width=600&text=Mountain+Trekker+3"
+    ],
+    "category": "sunglasses",
+    "gender": "unisex",
+    "description": "Lunettes de montagne robustes conçues pour les conditions extrêmes.",
+    "features": [
+      "Verres catégorie 4",
+      "Protection latérale",
+      "Résistant au froid",
+      "Dragonne incluse"
+    ],
+    "frameShape": "Shield",
+    "material": "Polycarbonate",
+    "color": "Glacier Grey",
+    "stock": 10,
+    "rating": 4.7,
+    "reviewsCount": 48,
+    "isFeatured": false
+  },
+  {
+    "id": "22",
+    "name": "Rimless Vision",
+    "brand": "Essence",
+    "price": 112000,
+    "image": "/placeholder.svg?height=400&width=400&text=Rimless+Vision",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Rimless+Vision+1",
+      "/placeholder.svg?height=600&width=600&text=Rimless+Vision+2",
+      "/placeholder.svg?height=600&width=600&text=Rimless+Vision+3"
+    ],
+    "category": "optical",
+    "gender": "unisex",
+    "description": "Montures sans cerclage pour une discrétion et légèreté maximales.",
+    "features": [
+      "Design rimless",
+      "Titane médical",
+      "Poids plume",
+      "Verres minces haute-définition"
+    ],
+    "frameShape": "Rimless",
+    "material": "Titanium",
+    "color": "Silver",
+    "stock": 17,
+    "rating": 4.6,
+    "reviewsCount": 55,
+    "isFeatured": false
+  },
+  {
+    "id": "23",
+    "name": "Neon Vibes",
+    "brand": "UrbanStyle",
+    "price": 68000,
+    "image": "/placeholder.svg?height=400&width=400&text=Neon+Vibes",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Neon+Vibes+1",
+      "/placeholder.svg?height=600&width=600&text=Neon+Vibes+2",
+      "/placeholder.svg?height=600&width=600&text=Neon+Vibes+3"
+    ],
+    "category": "sunglasses",
+    "gender": "unisex",
+    "description": "Style urbain audacieux avec verres miroir et couleurs néon éclatantes.",
+    "features": [
+      "Verres miroir iridescent",
+      "Monture fluo",
+      "Look streetwear",
+      "Prix accessible"
+    ],
+    "frameShape": "Wayfarer",
+    "material": "Plastic",
+    "color": "Neon Yellow",
+    "stock": 24,
+    "rating": 4.3,
+    "reviewsCount": 88,
+    "isFeatured": false
+  },
+  {
+    "id": "24",
+    "name": "Golden Luxury",
+    "brand": "LuxVision",
+    "price": 185000,
+    "image": "/placeholder.svg?height=400&width=400&text=Golden+Luxury",
+    "images": [
+      "/placeholder.svg?height=600&width=600&text=Golden+Luxury+1",
+      "/placeholder.svg?height=600&width=600&text=Golden+Luxury+2",
+      "/placeholder.svg?height=600&width=600&text=Golden+Luxury+3"
+    ],
+    "category": "sunglasses",
+    "gender": "unisex",
+    "description": "Collection prestige avec monture plaquée or 24 carats et cristaux Swarovski.",
+    "features": [
+      "Plaqué or 24K",
+      "Cristaux Swarovski",
+      "Verres Carl Zeiss",
+      "Édition limitée"
+    ],
+    "frameShape": "Aviator",
+    "material": "Gold-plated Metal",
+    "color": "24K Gold",
+    "stock": 3,
+    "rating": 5.0,
+    "reviewsCount": 15,
+    "isFeatured": true
+  }
+]

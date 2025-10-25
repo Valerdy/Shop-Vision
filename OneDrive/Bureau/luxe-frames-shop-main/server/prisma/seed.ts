@@ -1,7 +1,36 @@
 import { PrismaClient, Gender, UserRole } from '@prisma/client';
 import bcrypt from 'bcryptjs';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
 const prisma = new PrismaClient();
+
+// Load shared products data
+const productsData = JSON.parse(
+  readFileSync(join(__dirname, '../../shared/data/products.json'), 'utf-8')
+);
+
+// Helper function to convert string gender to Gender enum
+function mapGender(gender: string): Gender {
+  switch (gender.toUpperCase()) {
+    case 'MEN':
+      return Gender.MEN;
+    case 'WOMEN':
+      return Gender.WOMEN;
+    case 'UNISEX':
+      return Gender.UNISEX;
+    default:
+      return Gender.UNISEX;
+  }
+}
+
+// Helper function to generate slug from product name
+function generateSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
 
 async function main() {
   console.log('🌱 Starting database seed...');
@@ -45,196 +74,42 @@ async function main() {
     },
   });
 
+  console.log('✅ Created categories');
+
   // ============================================
-  // CREATE PRODUCTS
+  // CREATE PRODUCTS FROM SHARED DATA
   // ============================================
-  console.log('👓 Creating products...');
+  console.log('👓 Creating products from shared data file...');
 
-  const products = await Promise.all([
-    // Optical Products
-    prisma.product.create({
-      data: {
-        name: 'Classic Round',
-        slug: 'classic-round',
-        brand: 'LuxVision',
-        price: 95000,
-        description: 'Timeless round frames that blend vintage charm with modern sophistication.',
-        categoryId: opticalCategory.id,
-        gender: Gender.UNISEX,
-        frameShape: 'Round',
-        material: 'Acetate',
-        color: 'Tortoise',
-        stock: 12,
-        images: [
-          '/placeholder.svg?height=600&width=600&text=Classic+Round+1',
-          '/placeholder.svg?height=600&width=600&text=Classic+Round+2',
-          '/placeholder.svg?height=600&width=600&text=Classic+Round+3',
-        ],
-        features: ['Lightweight acetate', 'Spring hinges', 'Anti-reflective coating', 'UV protection'],
-        isFeatured: true,
-      },
-    }),
+  const categoryMap = {
+    optical: opticalCategory.id,
+    sunglasses: sunglassesCategory.id,
+  };
 
-    prisma.product.create({
-      data: {
-        name: 'Cat Eye Elegance',
-        slug: 'cat-eye-elegance',
-        brand: 'Femme',
-        price: 105000,
-        description: 'Sophisticated cat-eye frames that add a touch of glamour to any look.',
-        categoryId: opticalCategory.id,
-        gender: Gender.WOMEN,
-        frameShape: 'Cat Eye',
-        material: 'Acetate',
-        color: 'Black',
-        stock: 15,
-        images: [
-          '/placeholder.svg?height=600&width=600&text=Cat+Eye+1',
-          '/placeholder.svg?height=600&width=600&text=Cat+Eye+2',
-          '/placeholder.svg?height=600&width=600&text=Cat+Eye+3',
-        ],
-        features: ['Handcrafted acetate', 'Flexible temples', 'Scratch-resistant', 'Blue light filtering'],
-        isFeatured: true,
-      },
-    }),
+  const products = await Promise.all(
+    productsData.map((productData: any) =>
+      prisma.product.create({
+        data: {
+          name: productData.name,
+          slug: generateSlug(productData.name),
+          brand: productData.brand,
+          price: productData.price,
+          description: productData.description,
+          categoryId: categoryMap[productData.category as 'optical' | 'sunglasses'],
+          gender: mapGender(productData.gender),
+          frameShape: productData.frameShape,
+          material: productData.material,
+          color: productData.color,
+          stock: productData.stock,
+          images: productData.images,
+          features: productData.features,
+          isFeatured: productData.isFeatured || false,
+        },
+      })
+    )
+  );
 
-    prisma.product.create({
-      data: {
-        name: 'Urban Square',
-        slug: 'urban-square',
-        brand: 'ModernEdge',
-        price: 85000,
-        description: 'Contemporary square frames perfect for the modern professional.',
-        categoryId: opticalCategory.id,
-        gender: Gender.MEN,
-        frameShape: 'Square',
-        material: 'Titanium',
-        color: 'Matte Black',
-        stock: 20,
-        images: [
-          '/placeholder.svg?height=600&width=600&text=Urban+Square+1',
-          '/placeholder.svg?height=600&width=600&text=Urban+Square+2',
-          '/placeholder.svg?height=600&width=600&text=Urban+Square+3',
-        ],
-        features: ['Titanium frame', 'Adjustable fit', 'Anti-glare coating', 'Lightweight design'],
-      },
-    }),
-
-    prisma.product.create({
-      data: {
-        name: 'Minimalist Wire',
-        slug: 'minimalist-wire',
-        brand: 'Essence',
-        price: 75000,
-        description: 'Ultra-lightweight wire frames for those who prefer understated elegance.',
-        categoryId: opticalCategory.id,
-        gender: Gender.UNISEX,
-        frameShape: 'Oval',
-        material: 'Metal',
-        color: 'Silver',
-        stock: 25,
-        images: [
-          '/placeholder.svg?height=600&width=600&text=Minimalist+Wire+1',
-          '/placeholder.svg?height=600&width=600&text=Minimalist+Wire+2',
-          '/placeholder.svg?height=600&width=600&text=Minimalist+Wire+3',
-        ],
-        features: ['Thin wire frame', 'Memory metal', 'Barely-there feel', 'Adjustable nose pads'],
-      },
-    }),
-
-    // Sunglasses Products
-    prisma.product.create({
-      data: {
-        name: 'Aviator Pro',
-        slug: 'aviator-pro',
-        brand: 'SkyLine',
-        price: 125000,
-        description: 'Iconic aviator sunglasses with premium polarized lenses for ultimate eye protection.',
-        categoryId: sunglassesCategory.id,
-        gender: Gender.UNISEX,
-        frameShape: 'Aviator',
-        material: 'Metal',
-        color: 'Gold',
-        stock: 8,
-        images: [
-          '/placeholder.svg?height=600&width=600&text=Aviator+Pro+1',
-          '/placeholder.svg?height=600&width=600&text=Aviator+Pro+2',
-          '/placeholder.svg?height=600&width=600&text=Aviator+Pro+3',
-        ],
-        features: ['Polarized lenses', 'Metal frame', '100% UV protection', 'Adjustable nose pads'],
-        isFeatured: true,
-      },
-    }),
-
-    prisma.product.create({
-      data: {
-        name: 'Retro Wayfarer',
-        slug: 'retro-wayfarer',
-        brand: 'Vintage Soul',
-        price: 90000,
-        description: 'Classic wayfarer style with a modern twist for the trendsetter.',
-        categoryId: sunglassesCategory.id,
-        gender: Gender.UNISEX,
-        frameShape: 'Wayfarer',
-        material: 'Acetate',
-        color: 'Tortoise Brown',
-        stock: 5,
-        images: [
-          '/placeholder.svg?height=600&width=600&text=Retro+Wayfarer+1',
-          '/placeholder.svg?height=600&width=600&text=Retro+Wayfarer+2',
-          '/placeholder.svg?height=600&width=600&text=Retro+Wayfarer+3',
-        ],
-        features: ['Polarized lenses', 'Acetate frame', 'UV400 protection', 'Iconic design'],
-        isFeatured: true,
-      },
-    }),
-
-    prisma.product.create({
-      data: {
-        name: 'Sport Shield',
-        slug: 'sport-shield',
-        brand: 'ActiveVision',
-        price: 115000,
-        description: 'High-performance sports sunglasses designed for active lifestyles.',
-        categoryId: sunglassesCategory.id,
-        gender: Gender.UNISEX,
-        frameShape: 'Shield',
-        material: 'TR90',
-        color: 'Matte Grey',
-        stock: 18,
-        images: [
-          '/placeholder.svg?height=600&width=600&text=Sport+Shield+1',
-          '/placeholder.svg?height=600&width=600&text=Sport+Shield+2',
-          '/placeholder.svg?height=600&width=600&text=Sport+Shield+3',
-        ],
-        features: ['Impact-resistant', 'Wraparound design', 'Anti-fog coating', 'Rubberized grip'],
-      },
-    }),
-
-    prisma.product.create({
-      data: {
-        name: 'Oversized Glam',
-        slug: 'oversized-glam',
-        brand: 'Diva',
-        price: 110000,
-        description: 'Bold oversized sunglasses that make a statement wherever you go.',
-        categoryId: sunglassesCategory.id,
-        gender: Gender.WOMEN,
-        frameShape: 'Oversized',
-        material: 'Acetate',
-        color: 'Burgundy',
-        stock: 10,
-        images: [
-          '/placeholder.svg?height=600&width=600&text=Oversized+Glam+1',
-          '/placeholder.svg?height=600&width=600&text=Oversized+Glam+2',
-          '/placeholder.svg?height=600&width=600&text=Oversized+Glam+3',
-        ],
-        features: ['Gradient lenses', 'Large coverage', 'Metal accents', 'Designer style'],
-      },
-    }),
-  ]);
-
-  console.log(`✅ Created ${products.length} products`);
+  console.log(`✅ Created ${products.length} products from shared data`);
 
   // ============================================
   // CREATE DEMO USERS
@@ -274,31 +149,37 @@ async function main() {
   // ============================================
   console.log('⭐ Creating reviews...');
 
-  await Promise.all([
-    prisma.review.create({
-      data: {
-        productId: products[0].id, // Classic Round
-        userId: demoUser.id,
-        rating: 5,
-        title: 'Excellente qualité !',
-        comment: 'Les montures sont élégantes et très confortables. Je les porte tous les jours sans aucun problème.',
-        verified: true,
-      },
-    }),
+  const reviewsToCreate = [];
 
-    prisma.review.create({
-      data: {
-        productId: products[4].id, // Aviator Pro
-        userId: demoUser.id,
-        rating: 5,
-        title: 'Parfaites pour l\'été',
-        comment: 'Les meilleures lunettes de soleil que j\'ai jamais eues ! Les verres polarisés sont incroyables.',
-        verified: true,
-      },
-    }),
-  ]);
+  // Add reviews for featured products
+  const featuredProducts = products.filter((p, index) =>
+    productsData[index].isFeatured
+  );
 
-  console.log('✅ Created reviews');
+  for (let i = 0; i < Math.min(featuredProducts.length, 5); i++) {
+    const product = featuredProducts[i];
+    const productData = productsData.find((p: any) => generateSlug(p.name) === product.slug);
+
+    if (productData && productData.rating && productData.reviewsCount) {
+      reviewsToCreate.push(
+        prisma.review.create({
+          data: {
+            productId: product.id,
+            userId: demoUser.id,
+            rating: Math.round(productData.rating),
+            title: productData.rating >= 4.5 ? 'Excellente qualité !' : 'Très bon produit',
+            comment: `Les ${product.name} sont vraiment superbes ! La qualité est au rendez-vous et le design est magnifique. Je recommande vivement !`,
+            verified: true,
+          },
+        })
+      );
+    }
+  }
+
+  if (reviewsToCreate.length > 0) {
+    await Promise.all(reviewsToCreate);
+    console.log(`✅ Created ${reviewsToCreate.length} reviews`);
+  }
 
   // ============================================
   // CREATE DEMO ADDRESS
@@ -335,6 +216,8 @@ async function main() {
   console.log('👤 Demo credentials:');
   console.log('   Admin: admin@luxvision.cg / password123');
   console.log('   Customer: client@example.com / password123');
+  console.log('');
+  console.log('💡 All products from shared/data/products.json have been imported!');
 }
 
 main()
