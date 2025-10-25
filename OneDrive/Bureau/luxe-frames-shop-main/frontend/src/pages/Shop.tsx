@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { productsAPI } from '@/services/api';
+import productService from '@/services/productService';
 import ProductCard from '@/components/ProductCard';
 import ProductFilter from '@/components/ProductFilter';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Wifi, WifiOff } from 'lucide-react';
 import { toast } from 'sonner';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import {
   Select,
   SelectContent,
@@ -38,14 +39,23 @@ const Shop = () => {
   const [sortBy, setSortBy] = useState<SortOption>('featured');
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [usingCache, setUsingCache] = useState(false);
 
-  // Fetch products from API
+  // Fetch products from API with fallback
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await productsAPI.getAll();
+        const response = await productService.getAll();
         setProducts(response.data.products || []);
+        setUsingCache(response.fromCache || false);
+
+        if (response.fromCache) {
+          toast.info('Mode hors ligne - Données locales utilisées', {
+            description: 'Le backend n\'est pas disponible. Vous consultez les données de démonstration.',
+            duration: 5000,
+          });
+        }
       } catch (error: any) {
         console.error('Error fetching products:', error);
         toast.error('Erreur lors du chargement des produits');
@@ -109,6 +119,17 @@ const Shop = () => {
 
       <main className="flex-1 py-8">
         <div className="container mx-auto px-4">
+          {/* Offline indicator */}
+          {usingCache && (
+            <Alert className="mb-6 bg-amber-50 border-amber-200 dark:bg-amber-950 dark:border-amber-800">
+              <WifiOff className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+              <AlertDescription className="text-amber-800 dark:text-amber-200">
+                <strong>Mode hors ligne :</strong> Vous consultez les données de démonstration.
+                Démarrez le backend pour accéder aux données complètes.
+              </AlertDescription>
+            </Alert>
+          )}
+
           <div className="mb-8 animate-fade-in">
             <h1 className="text-4xl font-bold mb-2">
               {searchQuery ? `Résultats pour "${searchQuery}"` : 'Boutique de Lunettes'}
