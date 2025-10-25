@@ -4,11 +4,11 @@
     "name": "Classic Round",
     "brand": "LuxVision",
     "price": 95000,
-    "image": "/placeholder.svg?height=400&width=400&text=Classic+Round",
+    "image": "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Classic+Round+1",
-      "/placeholder.svg?height=600&width=600&text=Classic+Round+2",
-      "/placeholder.svg?height=600&width=600&text=Classic+Round+3"
+      "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1200&q=80",
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80",
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "unisex",
@@ -32,11 +32,11 @@
     "name": "Aviator Pro",
     "brand": "SkyLine",
     "price": 125000,
-    "image": "/placeholder.svg?height=400&width=400&text=Aviator+Pro",
+    "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Aviator+Pro+1",
-      "/placeholder.svg?height=600&width=600&text=Aviator+Pro+2",
-      "/placeholder.svg?height=600&width=600&text=Aviator+Pro+3"
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=1200&q=80",
+      "https://images.unsplash.com/photo-1577803645773-f96470509666?w=1200&q=80",
+      "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "unisex",
@@ -60,11 +60,11 @@
     "name": "Cat Eye Elegance",
     "brand": "Femme",
     "price": 105000,
-    "image": "/placeholder.svg?height=400&width=400&text=Cat+Eye",
+    "image": "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=800&q=80&crop=edges",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Cat+Eye+1",
-      "/placeholder.svg?height=600&width=600&text=Cat+Eye+2",
-      "/placeholder.svg?height=600&width=600&text=Cat+Eye+3"
+      "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1200&q=80",
+      "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=1200&q=80",
+      "https://images.unsplash.com/photo-1614715838608-dd527c46231d?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "women",
@@ -88,11 +88,11 @@
     "name": "Urban Square",
     "brand": "ModernEdge",
     "price": 85000,
-    "image": "/placeholder.svg?height=400&width=400&text=Urban+Square",
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Urban+Square+1",
-      "/placeholder.svg?height=600&width=600&text=Urban+Square+2",
-      "/placeholder.svg?height=600&width=600&text=Urban+Square+3"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80",
+      "https://images.unsplash.com/photo-1586295166365-8b0dc13f9aa5?w=1200&q=80",
+      "https://images.unsplash.com/photo-1622108652968-747766e70991?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "men",
@@ -116,11 +116,11 @@
     "name": "Retro Wayfarer",
     "brand": "Vintage Soul",
     "price": 90000,
-    "image": "/placeholder.svg?height=400&width=400&text=Retro+Wayfarer",
+    "image": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Retro+Wayfarer+1",
-      "/placeholder.svg?height=600&width=600&text=Retro+Wayfarer+2",
-      "/placeholder.svg?height=600&width=600&text=Retro+Wayfarer+3"
+      "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=1200&q=80",
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80&flip=h",
+      "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "unisex",
@@ -144,11 +144,11 @@
     "name": "Sport Shield",
     "brand": "ActiveVision",
     "price": 115000,
-    "image": "/placeholder.svg?height=400&width=400&text=Sport+Shield",
+    "image": "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Sport+Shield+1",
-      "/placeholder.svg?height=600&width=600&text=Sport+Shield+2",
-      "/placeholder.svg?height=600&width=600&text=Sport+Shield+3"
+      "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=1200&q=80",
+      "https://images.unsplash.com/photo-1577803645773-f96470509666?w=1200&q=80",
+      "https://images.unsplash.com/photo-1584036533827-45bce166ad94?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "unisex",
@@ -172,11 +172,11 @@
     "name": "Oversized Glam",
     "brand": "Diva",
     "price": 110000,
-    "image": "/placeholder.svg?height=400&width=400&text=Oversized+Glam",
+    "image": "https://images.unsplash.com/photo-1580956119908-d1683398311b?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Oversized+Glam+1",
-      "/placeholder.svg?height=600&width=600&text=Oversized+Glam+2",
-      "/placeholder.svg?height=600&width=600&text=Oversized+Glam+3"
+      "https://images.unsplash.com/photo-1580956119908-d1683398311b?w=1200&q=80",
+      "https://images.unsplash.com/photo-1584241431578-f7b4e47fd5fb?w=1200&q=80",
+      "https://images.unsplash.com/photo-1622108652968-747766e70991?w=1200&q=80&flip=h"
     ],
     "category": "sunglasses",
     "gender": "women",
@@ -200,11 +200,11 @@
     "name": "Minimalist Wire",
     "brand": "Essence",
     "price": 75000,
-    "image": "/placeholder.svg?height=400&width=400&text=Minimalist+Wire",
+    "image": "https://images.unsplash.com/photo-1622108652968-747766e70991?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Minimalist+Wire+1",
-      "/placeholder.svg?height=600&width=600&text=Minimalist+Wire+2",
-      "/placeholder.svg?height=600&width=600&text=Minimalist+Wire+3"
+      "https://images.unsplash.com/photo-1622108652968-747766e70991?w=1200&q=80",
+      "https://images.unsplash.com/photo-1586295166365-8b0dc13f9aa5?w=1200&q=80",
+      "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "unisex",
@@ -228,11 +228,11 @@
     "name": "Executive Rectangular",
     "brand": "BusinessPro",
     "price": 98000,
-    "image": "/placeholder.svg?height=400&width=400&text=Executive+Rectangular",
+    "image": "https://images.unsplash.com/photo-1614715838608-dd527c46231d?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Executive+Rectangular+1",
-      "/placeholder.svg?height=600&width=600&text=Executive+Rectangular+2",
-      "/placeholder.svg?height=600&width=600&text=Executive+Rectangular+3"
+      "https://images.unsplash.com/photo-1614715838608-dd527c46231d?w=1200&q=80",
+      "https://images.unsplash.com/photo-1590682680854-0a6e98109e88?w=1200&q=80",
+      "https://images.unsplash.com/photo-1622108652968-747766e70991?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "men",
@@ -256,11 +256,11 @@
     "name": "Vintage Browline",
     "brand": "Retro Chic",
     "price": 88000,
-    "image": "/placeholder.svg?height=400&width=400&text=Vintage+Browline",
+    "image": "https://images.unsplash.com/photo-1517438476312-10d79c077509?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Vintage+Browline+1",
-      "/placeholder.svg?height=600&width=600&text=Vintage+Browline+2",
-      "/placeholder.svg?height=600&width=600&text=Vintage+Browline+3"
+      "https://images.unsplash.com/photo-1517438476312-10d79c077509?w=1200&q=80",
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80",
+      "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1200&q=80&flip=h"
     ],
     "category": "optical",
     "gender": "unisex",
@@ -284,11 +284,11 @@
     "name": "Crystal Clear",
     "brand": "ModernVue",
     "price": 79000,
-    "image": "/placeholder.svg?height=400&width=400&text=Crystal+Clear",
+    "image": "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Crystal+Clear+1",
-      "/placeholder.svg?height=600&width=600&text=Crystal+Clear+2",
-      "/placeholder.svg?height=600&width=600&text=Crystal+Clear+3"
+      "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=1200&q=80",
+      "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=1200&q=80",
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "women",
@@ -312,11 +312,11 @@
     "name": "Mirrored Sport",
     "brand": "ActiveVision",
     "price": 135000,
-    "image": "/placeholder.svg?height=400&width=400&text=Mirrored+Sport",
+    "image": "https://images.unsplash.com/photo-1584036533827-45bce166ad94?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Mirrored+Sport+1",
-      "/placeholder.svg?height=600&width=600&text=Mirrored+Sport+2",
-      "/placeholder.svg?height=600&width=600&text=Mirrored+Sport+3"
+      "https://images.unsplash.com/photo-1584036533827-45bce166ad94?w=1200&q=80",
+      "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=1200&q=80",
+      "https://images.unsplash.com/photo-1577803645773-f96470509666?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "unisex",
@@ -340,11 +340,11 @@
     "name": "Butterfly Glamour",
     "brand": "Femme",
     "price": 118000,
-    "image": "/placeholder.svg?height=400&width=400&text=Butterfly+Glamour",
+    "image": "https://images.unsplash.com/photo-1584241431578-f7b4e47fd5fb?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Butterfly+Glamour+1",
-      "/placeholder.svg?height=600&width=600&text=Butterfly+Glamour+2",
-      "/placeholder.svg?height=600&width=600&text=Butterfly+Glamour+3"
+      "https://images.unsplash.com/photo-1584241431578-f7b4e47fd5fb?w=1200&q=80",
+      "https://images.unsplash.com/photo-1580956119908-d1683398311b?w=1200&q=80",
+      "https://images.unsplash.com/photo-1622108652968-747766e70991?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "women",
@@ -368,11 +368,11 @@
     "name": "Tech Flex",
     "brand": "FlexiFrame",
     "price": 92000,
-    "image": "/placeholder.svg?height=400&width=400&text=Tech+Flex",
+    "image": "https://images.unsplash.com/photo-1586295166365-8b0dc13f9aa5?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Tech+Flex+1",
-      "/placeholder.svg?height=600&width=600&text=Tech+Flex+2",
-      "/placeholder.svg?height=600&width=600&text=Tech+Flex+3"
+      "https://images.unsplash.com/photo-1586295166365-8b0dc13f9aa5?w=1200&q=80",
+      "https://images.unsplash.com/photo-1614715838608-dd527c46231d?w=1200&q=80",
+      "https://images.unsplash.com/photo-1590682680854-0a6e98109e88?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "men",
@@ -396,11 +396,11 @@
     "name": "Clubmaster Elite",
     "brand": "Heritage",
     "price": 108000,
-    "image": "/placeholder.svg?height=400&width=400&text=Clubmaster+Elite",
+    "image": "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Clubmaster+Elite+1",
-      "/placeholder.svg?height=600&width=600&text=Clubmaster+Elite+2",
-      "/placeholder.svg?height=600&width=600&text=Clubmaster+Elite+3"
+      "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1200&q=80",
+      "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=1200&q=80",
+      "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "unisex",
@@ -424,11 +424,11 @@
     "name": "Geometric Edge",
     "brand": "ModernEdge",
     "price": 95000,
-    "image": "/placeholder.svg?height=400&width=400&text=Geometric+Edge",
+    "image": "https://images.unsplash.com/photo-1590682680854-0a6e98109e88?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Geometric+Edge+1",
-      "/placeholder.svg?height=600&width=600&text=Geometric+Edge+2",
-      "/placeholder.svg?height=600&width=600&text=Geometric+Edge+3"
+      "https://images.unsplash.com/photo-1590682680854-0a6e98109e88?w=1200&q=80",
+      "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=1200&q=80",
+      "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "women",
@@ -452,11 +452,11 @@
     "name": "Pilot Classic",
     "brand": "SkyLine",
     "price": 142000,
-    "image": "/placeholder.svg?height=400&width=400&text=Pilot+Classic",
+    "image": "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Pilot+Classic+1",
-      "/placeholder.svg?height=600&width=600&text=Pilot+Classic+2",
-      "/placeholder.svg?height=600&width=600&text=Pilot+Classic+3"
+      "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=1200&q=80",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=1200&q=80",
+      "https://images.unsplash.com/photo-1577803645773-f96470509666?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "men",
@@ -471,7 +471,7 @@
     "material": "Titanium",
     "color": "Silver",
     "stock": 7,
-    "rating": 5.0,
+    "rating": 5,
     "reviewsCount": 91,
     "isFeatured": true
   },
@@ -480,11 +480,11 @@
     "name": "Bohemian Round",
     "brand": "Vintage Soul",
     "price": 82000,
-    "image": "/placeholder.svg?height=400&width=400&text=Bohemian+Round",
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&q=80&sat=-10",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Bohemian+Round+1",
-      "/placeholder.svg?height=600&width=600&text=Bohemian+Round+2",
-      "/placeholder.svg?height=600&width=600&text=Bohemian+Round+3"
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80",
+      "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1200&q=80",
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "unisex",
@@ -508,11 +508,11 @@
     "name": "Smart Blue Guard",
     "brand": "TechVision",
     "price": 105000,
-    "image": "/placeholder.svg?height=400&width=400&text=Smart+Blue+Guard",
+    "image": "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Smart+Blue+Guard+1",
-      "/placeholder.svg?height=600&width=600&text=Smart+Blue+Guard+2",
-      "/placeholder.svg?height=600&width=600&text=Smart+Blue+Guard+3"
+      "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=1200&q=80",
+      "https://images.unsplash.com/photo-1586295166365-8b0dc13f9aa5?w=1200&q=80",
+      "https://images.unsplash.com/photo-1614715838608-dd527c46231d?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "unisex",
@@ -536,11 +536,11 @@
     "name": "Pearl Elegance",
     "brand": "Diva",
     "price": 128000,
-    "image": "/placeholder.svg?height=400&width=400&text=Pearl+Elegance",
+    "image": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Pearl+Elegance+1",
-      "/placeholder.svg?height=600&width=600&text=Pearl+Elegance+2",
-      "/placeholder.svg?height=600&width=600&text=Pearl+Elegance+3"
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=1200&q=80",
+      "https://images.unsplash.com/photo-1591076482161-42ce6da69f67?w=1200&q=80",
+      "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "women",
@@ -564,11 +564,11 @@
     "name": "Mountain Trekker",
     "brand": "ActiveVision",
     "price": 148000,
-    "image": "/placeholder.svg?height=400&width=400&text=Mountain+Trekker",
+    "image": "https://images.unsplash.com/photo-1577803645773-f96470509666?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Mountain+Trekker+1",
-      "/placeholder.svg?height=600&width=600&text=Mountain+Trekker+2",
-      "/placeholder.svg?height=600&width=600&text=Mountain+Trekker+3"
+      "https://images.unsplash.com/photo-1577803645773-f96470509666?w=1200&q=80",
+      "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?w=1200&q=80",
+      "https://images.unsplash.com/photo-1584036533827-45bce166ad94?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "unisex",
@@ -592,11 +592,11 @@
     "name": "Rimless Vision",
     "brand": "Essence",
     "price": 112000,
-    "image": "/placeholder.svg?height=400&width=400&text=Rimless+Vision",
+    "image": "https://images.unsplash.com/photo-1622108652968-747766e70991?w=800&q=80",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Rimless+Vision+1",
-      "/placeholder.svg?height=600&width=600&text=Rimless+Vision+2",
-      "/placeholder.svg?height=600&width=600&text=Rimless+Vision+3"
+      "https://images.unsplash.com/photo-1622108652968-747766e70991?w=1200&q=80",
+      "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=1200&q=80",
+      "https://images.unsplash.com/photo-1586295166365-8b0dc13f9aa5?w=1200&q=80"
     ],
     "category": "optical",
     "gender": "unisex",
@@ -620,11 +620,11 @@
     "name": "Neon Vibes",
     "brand": "UrbanStyle",
     "price": 68000,
-    "image": "/placeholder.svg?height=400&width=400&text=Neon+Vibes",
+    "image": "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=800&q=80&sat=20",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Neon+Vibes+1",
-      "/placeholder.svg?height=600&width=600&text=Neon+Vibes+2",
-      "/placeholder.svg?height=600&width=600&text=Neon+Vibes+3"
+      "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=1200&q=80",
+      "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1200&q=80",
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "unisex",
@@ -648,11 +648,11 @@
     "name": "Golden Luxury",
     "brand": "LuxVision",
     "price": 185000,
-    "image": "/placeholder.svg?height=400&width=400&text=Golden+Luxury",
+    "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&q=80&hue=30",
     "images": [
-      "/placeholder.svg?height=600&width=600&text=Golden+Luxury+1",
-      "/placeholder.svg?height=600&width=600&text=Golden+Luxury+2",
-      "/placeholder.svg?height=600&width=600&text=Golden+Luxury+3"
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=1200&q=80",
+      "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=1200&q=80",
+      "https://images.unsplash.com/photo-1577803645773-f96470509666?w=1200&q=80"
     ],
     "category": "sunglasses",
     "gender": "unisex",
@@ -667,7 +667,7 @@
     "material": "Gold-plated Metal",
     "color": "24K Gold",
     "stock": 3,
-    "rating": 5.0,
+    "rating": 5,
     "reviewsCount": 15,
     "isFeatured": true
   }
