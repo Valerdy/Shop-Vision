@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
@@ -7,35 +6,32 @@ import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { checkoutSchema, type CheckoutFormData } from '@/lib/validations';
 
 const Checkout = () => {
   const { items, totalPrice, clearCart } = useCart();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    address: '',
-    city: '',
-    state: '',
-    zipCode: '',
-    cardNumber: '',
-    cardName: '',
-    expiryDate: '',
-    cvv: '',
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<CheckoutFormData>({
+    resolver: zodResolver(checkoutSchema),
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate payment processing
-    toast.success('Commande passée avec succès !');
-    clearCart();
-    navigate('/');
+  const onSubmit = async (data: CheckoutFormData) => {
+    try {
+      // Simulate payment processing
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      toast.success('Commande passée avec succès !');
+      clearCart();
+      navigate('/');
+    } catch (error) {
+      toast.error('Une erreur est survenue lors du traitement de votre commande');
+    }
   };
 
   if (items.length === 0) {
@@ -51,7 +47,7 @@ const Checkout = () => {
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-8 animate-fade-in">Paiement</h1>
 
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Checkout Form */}
             <div className="lg:col-span-2 space-y-8">
               {/* Contact Information */}
@@ -62,43 +58,48 @@ const Checkout = () => {
                     <Label htmlFor="firstName">Prénom</Label>
                     <Input
                       id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      required
+                      {...register('firstName')}
+                      className={errors.firstName ? 'border-destructive' : ''}
                     />
+                    {errors.firstName && (
+                      <p className="text-sm text-destructive mt-1">{errors.firstName.message}</p>
+                    )}
                   </div>
                   <div>
                     <Label htmlFor="lastName">Nom</Label>
                     <Input
                       id="lastName"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
+                      {...register('lastName')}
+                      className={errors.lastName ? 'border-destructive' : ''}
                     />
+                    {errors.lastName && (
+                      <p className="text-sm text-destructive mt-1">{errors.lastName.message}</p>
+                    )}
                   </div>
                   <div>
                     <Label htmlFor="email">Email</Label>
                     <Input
                       id="email"
-                      name="email"
                       type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
+                      {...register('email')}
+                      className={errors.email ? 'border-destructive' : ''}
                     />
+                    {errors.email && (
+                      <p className="text-sm text-destructive mt-1">{errors.email.message}</p>
+                    )}
                   </div>
                   <div>
                     <Label htmlFor="phone">Téléphone</Label>
                     <Input
                       id="phone"
-                      name="phone"
                       type="tel"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
+                      placeholder="+242 06 123 45 67"
+                      {...register('phone')}
+                      className={errors.phone ? 'border-destructive' : ''}
                     />
+                    {errors.phone && (
+                      <p className="text-sm text-destructive mt-1">{errors.phone.message}</p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -111,42 +112,50 @@ const Checkout = () => {
                     <Label htmlFor="address">Adresse</Label>
                     <Input
                       id="address"
-                      name="address"
-                      value={formData.address}
-                      onChange={handleInputChange}
-                      required
+                      {...register('address')}
+                      className={errors.address ? 'border-destructive' : ''}
+                      placeholder="123 Rue de la Liberté"
                     />
+                    {errors.address && (
+                      <p className="text-sm text-destructive mt-1">{errors.address.message}</p>
+                    )}
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                       <Label htmlFor="city">Ville</Label>
                       <Input
                         id="city"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleInputChange}
-                        required
+                        {...register('city')}
+                        className={errors.city ? 'border-destructive' : ''}
+                        placeholder="Pointe-Noire"
                       />
+                      {errors.city && (
+                        <p className="text-sm text-destructive mt-1">{errors.city.message}</p>
+                      )}
                     </div>
                     <div>
                       <Label htmlFor="state">Département</Label>
                       <Input
                         id="state"
-                        name="state"
-                        value={formData.state}
-                        onChange={handleInputChange}
-                        required
+                        {...register('state')}
+                        className={errors.state ? 'border-destructive' : ''}
+                        placeholder="Kouilou"
                       />
+                      {errors.state && (
+                        <p className="text-sm text-destructive mt-1">{errors.state.message}</p>
+                      )}
                     </div>
                     <div>
                       <Label htmlFor="zipCode">Code Postal</Label>
                       <Input
                         id="zipCode"
-                        name="zipCode"
-                        value={formData.zipCode}
-                        onChange={handleInputChange}
-                        required
+                        {...register('zipCode')}
+                        className={errors.zipCode ? 'border-destructive' : ''}
+                        placeholder="00242"
                       />
+                      {errors.zipCode && (
+                        <p className="text-sm text-destructive mt-1">{errors.zipCode.message}</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -160,45 +169,50 @@ const Checkout = () => {
                     <Label htmlFor="cardNumber">Numéro de Carte</Label>
                     <Input
                       id="cardNumber"
-                      name="cardNumber"
                       placeholder="1234 5678 9012 3456"
-                      value={formData.cardNumber}
-                      onChange={handleInputChange}
-                      required
+                      {...register('cardNumber')}
+                      className={errors.cardNumber ? 'border-destructive' : ''}
                     />
+                    {errors.cardNumber && (
+                      <p className="text-sm text-destructive mt-1">{errors.cardNumber.message}</p>
+                    )}
                   </div>
                   <div>
                     <Label htmlFor="cardName">Nom du Titulaire</Label>
                     <Input
                       id="cardName"
-                      name="cardName"
-                      value={formData.cardName}
-                      onChange={handleInputChange}
-                      required
+                      placeholder="JEAN DUPONT"
+                      {...register('cardName')}
+                      className={errors.cardName ? 'border-destructive' : ''}
                     />
+                    {errors.cardName && (
+                      <p className="text-sm text-destructive mt-1">{errors.cardName.message}</p>
+                    )}
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="expiryDate">Date d'Expiration</Label>
                       <Input
                         id="expiryDate"
-                        name="expiryDate"
                         placeholder="MM/YY"
-                        value={formData.expiryDate}
-                        onChange={handleInputChange}
-                        required
+                        {...register('expiryDate')}
+                        className={errors.expiryDate ? 'border-destructive' : ''}
                       />
+                      {errors.expiryDate && (
+                        <p className="text-sm text-destructive mt-1">{errors.expiryDate.message}</p>
+                      )}
                     </div>
                     <div>
                       <Label htmlFor="cvv">CVV</Label>
                       <Input
                         id="cvv"
-                        name="cvv"
                         placeholder="123"
-                        value={formData.cvv}
-                        onChange={handleInputChange}
-                        required
+                        {...register('cvv')}
+                        className={errors.cvv ? 'border-destructive' : ''}
                       />
+                      {errors.cvv && (
+                        <p className="text-sm text-destructive mt-1">{errors.cvv.message}</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -241,8 +255,14 @@ const Checkout = () => {
                     </div>
                   </div>
                 </div>
-                <Button type="submit" variant="default" size="lg" className="w-full hover-glow">
-                  Passer la Commande
+                <Button
+                  type="submit"
+                  variant="default"
+                  size="lg"
+                  className="w-full hover-glow"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Traitement en cours...' : 'Passer la Commande'}
                 </Button>
               </div>
             </div>

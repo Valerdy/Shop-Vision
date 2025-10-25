@@ -12,6 +12,9 @@ export interface Product {
   frameShape: string;
   material: string;
   color: string;
+  stock: number;
+  rating?: number;
+  reviewsCount?: number;
 }
 
 export const products: Product[] = [
@@ -33,6 +36,9 @@ export const products: Product[] = [
     frameShape: 'Round',
     material: 'Acetate',
     color: 'Tortoise',
+    stock: 12,
+    rating: 4.5,
+    reviewsCount: 28,
   },
   {
     id: '2',
@@ -52,6 +58,9 @@ export const products: Product[] = [
     frameShape: 'Aviator',
     material: 'Metal',
     color: 'Gold',
+    stock: 8,
+    rating: 4.8,
+    reviewsCount: 42,
   },
   {
     id: '3',
@@ -71,6 +80,9 @@ export const products: Product[] = [
     frameShape: 'Cat Eye',
     material: 'Acetate',
     color: 'Black',
+    stock: 15,
+    rating: 4.6,
+    reviewsCount: 35,
   },
   {
     id: '4',
@@ -90,6 +102,9 @@ export const products: Product[] = [
     frameShape: 'Square',
     material: 'Titanium',
     color: 'Matte Black',
+    stock: 20,
+    rating: 4.7,
+    reviewsCount: 31,
   },
   {
     id: '5',
@@ -109,6 +124,9 @@ export const products: Product[] = [
     frameShape: 'Wayfarer',
     material: 'Acetate',
     color: 'Tortoise Brown',
+    stock: 5,
+    rating: 4.9,
+    reviewsCount: 56,
   },
   {
     id: '6',
@@ -128,6 +146,9 @@ export const products: Product[] = [
     frameShape: 'Shield',
     material: 'TR90',
     color: 'Matte Grey',
+    stock: 18,
+    rating: 4.4,
+    reviewsCount: 22,
   },
   {
     id: '7',
@@ -147,6 +168,9 @@ export const products: Product[] = [
     frameShape: 'Oversized',
     material: 'Acetate',
     color: 'Burgundy',
+    stock: 10,
+    rating: 4.3,
+    reviewsCount: 19,
   },
   {
     id: '8',
@@ -166,5 +190,8 @@ export const products: Product[] = [
     frameShape: 'Oval',
     material: 'Metal',
     color: 'Silver',
+    stock: 25,
+    rating: 4.6,
+    reviewsCount: 38,
   },
 ];
