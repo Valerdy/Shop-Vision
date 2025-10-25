@@ -1,73 +1,176 @@
-# Welcome to your Lovable project
+# LuxVision - E-commerce de Lunettes Premium
 
-## Project info
+Boutique en ligne de lunettes de vue et de soleil premium basée à Pointe-Noire, Congo.
 
-**URL**: https://lovable.dev/projects/0a6b8945-1ea4-40e1-aa3f-a98970d7ee43
+## 📁 Structure du Projet
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/0a6b8945-1ea4-40e1-aa3f-a98970d7ee43) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+luxe-frames-shop-main/
+├── frontend/              # Application React + Vite + TypeScript
+│   ├── src/              # Code source frontend
+│   │   ├── components/   # Composants React réutilisables
+│   │   ├── contexts/     # Contextes React (Cart, Auth, Wishlist)
+│   │   ├── data/         # Données statiques et types
+│   │   ├── pages/        # Pages de l'application
+│   │   ├── services/     # Services API
+│   │   └── lib/          # Utilitaires
+│   ├── public/           # Assets statiques
+│   ├── package.json      # Dépendances frontend
+│   └── vite.config.ts    # Configuration Vite
+│
+├── server/               # API Backend Express.js
+│   ├── src/             # Code source backend
+│   │   ├── routes/      # Routes API
+│   │   ├── controllers/ # Contrôleurs
+│   │   ├── middleware/  # Middlewares (auth, etc.)
+│   │   └── index.ts     # Point d'entrée serveur
+│   ├── prisma/          # Schéma et migrations base de données
+│   │   ├── schema.prisma
+│   │   └── seed.ts      # Données initiales
+│   └── package.json     # Dépendances backend
+│
+├── API_DOCUMENTATION.md  # Documentation de l'API
+├── DATABASE_SETUP.md     # Guide de configuration de la BDD
+└── README.md            # Ce fichier
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Technologies Utilisées
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Frontend
+- **React 18.3** - Framework UI
+- **TypeScript 5.8** - Typage statique
+- **Vite 5.4** - Build tool ultra-rapide
+- **Tailwind CSS 3.4** - Framework CSS utility-first
+- **shadcn/ui** - Composants UI modernes
+- **React Router 6** - Routing
+- **React Query** - Gestion d'état serveur
+- **Zod** - Validation de schémas
 
-**Use GitHub Codespaces**
+### Backend
+- **Express.js** - Framework serveur Node.js
+- **TypeScript** - Typage pour le backend
+- **Prisma ORM** - ORM moderne pour PostgreSQL
+- **PostgreSQL** - Base de données relationnelle
+- **JWT** - Authentification
+- **bcryptjs** - Hachage de mots de passe
+- **Multer** - Upload de fichiers
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 💻 Installation et Démarrage
 
-## What technologies are used for this project?
+### Prérequis
+- Node.js 18+ et npm
+- PostgreSQL 14+
+- Git
 
-This project is built with:
+### Installation
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. **Cloner le repository**
+```sh
+git clone <YOUR_GIT_URL>
+cd luxe-frames-shop-main
+```
 
-## How can I deploy this project?
+2. **Installer les dépendances frontend**
+```sh
+cd frontend
+npm install
+```
 
-Simply open [Lovable](https://lovable.dev/projects/0a6b8945-1ea4-40e1-aa3f-a98970d7ee43) and click on Share -> Publish.
+3. **Installer les dépendances backend**
+```sh
+cd ../server
+npm install
+```
 
-## Can I connect a custom domain to my Lovable project?
+4. **Configuration de la base de données**
 
-Yes, you can!
+Consulter le fichier [DATABASE_SETUP.md](./DATABASE_SETUP.md) pour les instructions détaillées.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```sh
+cd server
+cp .env.example .env
+# Éditer .env avec vos paramètres PostgreSQL
+npm run prisma:migrate
+npm run prisma:seed
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Démarrage en développement
+
+**Option 1: Démarrer frontend et backend séparément**
+
+Terminal 1 (Frontend):
+```sh
+cd frontend
+npm run dev
+# Frontend: http://localhost:5173
+```
+
+Terminal 2 (Backend):
+```sh
+cd server
+npm run dev
+# Backend API: http://localhost:3000
+```
+
+**Option 2: Démarrer les deux simultanément**
+
+Depuis la racine du projet:
+```sh
+npm run dev:all
+```
+
+## 📚 Documentation
+
+- [API Documentation](./API_DOCUMENTATION.md) - Documentation complète de l'API REST
+- [Database Setup](./DATABASE_SETUP.md) - Configuration de PostgreSQL
+- [Quick Start Windows](./QUICK_START_WINDOWS.md) - Guide rapide pour Windows
+- [Troubleshooting](./TROUBLESHOOTING.md) - Résolution des problèmes courants
+
+## 🔑 Comptes de Démonstration
+
+Après avoir exécuté `npm run prisma:seed`:
+
+- **Admin**: admin@luxvision.cg / password123
+- **Client**: client@example.com / password123
+
+## 🌐 Fonctionnalités
+
+### Client
+- Catalogue de produits avec filtres
+- Panier d'achat (localStorage + backend)
+- Liste de souhaits
+- Authentification (inscription/connexion)
+- Profil utilisateur
+- Historique des commandes
+- Processus de checkout
+
+### Admin
+- Dashboard administrateur
+- Gestion des produits (CRUD)
+- Gestion des commandes
+- Gestion des utilisateurs
+- Statistiques de vente
+
+## 📦 Build Production
+
+**Frontend:**
+```sh
+cd frontend
+npm run build
+# Les fichiers de build seront dans frontend/dist/
+```
+
+**Backend:**
+```sh
+cd server
+npm run build
+# Les fichiers de build seront dans server/dist/
+```
+
+## 🤝 Contribution
+
+Ce projet utilise [Lovable](https://lovable.dev/projects/0a6b8945-1ea4-40e1-aa3f-a98970d7ee43) pour le développement rapide.
+
+## 📄 Licence
+
+Tous droits réservés - LuxVision 2024
